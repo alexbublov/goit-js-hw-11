@@ -26,6 +26,11 @@ searchForm.addEventListener('submit', (e) => {
             } else {
                 createGallery(hits);
             }
+        }).catch((error) => {
+            iziToast.error({
+                title: 'Error',
+                message: error.message,
+            });
         })
         .finally(() => {
             hideLoader();
