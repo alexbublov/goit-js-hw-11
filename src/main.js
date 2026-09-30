@@ -17,14 +17,14 @@ searchForm.addEventListener('submit', (e) => {
     clearGallery();
     showLoader();
     getImagesByQuery(query)
-        .then(({ data: { hits } }) => {
-            if (hits.length === 0) {
+        .then((images) => {
+            if (images.length === 0) {
                 iziToast.error({
                     title: 'Error',
                     message: 'Sorry, there are no images matching your search query. Please try again!',
                 });
             } else {
-                createGallery(hits);
+                createGallery(images);
             }
         }).catch((error) => {
             iziToast.error({
